@@ -15,241 +15,58 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Professional CSS Styling
+# Polished CSS Styling (Theme-aware)
 st.markdown("""
     <style>
-    /* Main theme colors */
-    :root {
-        --primary: #0066cc;
-        --primary-light: #e6f2ff;
-        --secondary: #1a5490;
-        --success: #10b981;
-        --warning: #f59e0b;
-        --danger: #ef4444;
-        --gray-50: #f9fafb;
-        --gray-100: #f3f4f6;
-        --gray-200: #e5e7eb;
-        --gray-700: #374151;
-        --gray-900: #111827;
-    }
-    
-    /* Body and main container */
-    .main {
-        background-color: #ffffff;
-        padding: 2rem;
-    }
-    
-    /* Headers styling */
-    h1, h2, h3, h4, h5, h6 {
-        color: var(--gray-900);
-        font-weight: 600;
-        letter-spacing: -0.5px;
-    }
-    
-    h1 { margin-bottom: 0.5rem; }
-    h2 { margin-top: 1.5rem; margin-bottom: 1rem; }
-    h3 { margin-top: 1rem; margin-bottom: 0.75rem; }
-    
-    /* Text styling */
-    p, label, span {
-        color: var(--gray-700);
-        line-height: 1.6;
-    }
-    
-    /* Subtitle/description text */
-    .subtitle {
-        color: var(--gray-700);
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-        opacity: 0.9;
-    }
-    
-    /* Button styling */
+    /* Button enhancements avoiding squished text */
     .stButton > button {
-        width: 100%;
-        background-color: var(--primary) !important;
-        color: white !important;
-        border: none !important;
         border-radius: 8px !important;
-        padding: 0.75rem 1.5rem !important;
         font-weight: 600 !important;
-        font-size: 1rem !important;
         transition: all 0.3s ease !important;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
     }
     
-    .stButton > button:hover {
-        background-color: var(--secondary) !important;
-        box-shadow: 0 4px 12px rgba(0,102,204,0.2) !important;
-        transform: translateY(-2px) !important;
-    }
-    
-    /* Card styling */
-    .card {
-        background-color: var(--gray-50);
-        border: 1px solid var(--gray-200);
-        border-radius: 12px;
-        padding: 1.5rem;
-        margin: 1rem 0;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-        transition: all 0.3s ease;
-    }
-    
-    .card:hover {
-        border-color: var(--primary);
-        box-shadow: 0 4px 12px rgba(0,102,204,0.1);
-    }
-    
-    /* Status cards */
-    .status-success {
-        background-color: #ecfdf5;
-        border-left: 4px solid var(--success);
-    }
-    
-    .status-warning {
-        background-color: #fffbeb;
-        border-left: 4px solid var(--warning);
-    }
-    
-    .status-info {
-        background-color: var(--primary-light);
-        border-left: 4px solid var(--primary);
-    }
-    
-    .status-error {
-        background-color: #fef2f2;
-        border-left: 4px solid var(--danger);
-    }
-    
-    /* Input styling */
-    .stTextInput input,
-    .stTextArea textarea,
-    .stSelectbox select {
-        background-color: white !important;
-        border: 2px solid var(--gray-200) !important;
-        border-radius: 8px !important;
-        padding: 0.75rem 1rem !important;
-        color: var(--gray-900) !important;
-        font-size: 0.95rem !important;
-        transition: border-color 0.3s ease !important;
-    }
-    
-    .stTextInput input:focus,
-    .stTextArea textarea:focus,
-    .stSelectbox select:focus {
-        border-color: var(--primary) !important;
-        box-shadow: 0 0 0 3px var(--primary-light) !important;
-    }
-    
-    /* Labels */
-    .stLabel {
-        font-weight: 600;
-        color: var(--gray-900) !important;
-        font-size: 0.95rem !important;
-        margin-bottom: 0.5rem !important;
-    }
-    
-    /* Metrics */
-    .stMetric {
-        background-color: white !important;
-        border: 1px solid var(--gray-200) !important;
+    /* Theme-agnostic Metrics */
+    div[data-testid="stMetric"] {
+        background: rgba(150, 150, 150, 0.05) !important;
+        border: 1px solid rgba(150, 150, 150, 0.2) !important;
         border-radius: 12px !important;
-        padding: 1.5rem !important;
-        text-align: center;
-        transition: all 0.3s ease;
-    }
-    
-    .stMetric:hover {
-        border-color: var(--primary);
-        box-shadow: 0 4px 12px rgba(0,102,204,0.1);
-    }
-    
-    .metric-label {
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: var(--gray-700);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 0.5rem;
-    }
-    
-    .metric-value {
-        font-size: 1.75rem;
-        font-weight: 700;
-        color: var(--primary);
+        padding: 1rem !important;
     }
     
     /* Tone badges */
     .tone-badge {
         display: inline-block;
-        padding: 0.5rem 1rem;
+        padding: 0.4rem 0.8rem;
         border-radius: 24px;
         font-weight: 600;
-        font-size: 0.9rem;
-        margin: 0.25rem;
-        letter-spacing: 0.3px;
+        font-size: 0.85rem;
+        margin: 0.25rem 0;
+        letter-spacing: 0.5px;
         text-transform: uppercase;
     }
     
     .tone-formal {
-        background-color: #eff6ff;
-        color: var(--primary);
-        border: 1.5px solid var(--primary);
+        background: rgba(59, 130, 246, 0.15);
+        color: #60a5fa;
+        border: 1px solid rgba(59, 130, 246, 0.5);
     }
     
     .tone-friendly {
-        background-color: #f0fdf4;
-        color: var(--success);
-        border: 1.5px solid var(--success);
+        background: rgba(16, 185, 129, 0.15);
+        color: #34d399;
+        border: 1px solid rgba(16, 185, 129, 0.5);
     }
     
     .tone-assertive {
-        background-color: #fef2f2;
-        color: var(--danger);
-        border: 1.5px solid var(--danger);
-    }
-    
-    /* Divider */
-    .divider {
-        margin: 2rem 0;
-        border: 0;
-        border-top: 2px solid var(--gray-200);
-    }
-    
-    /* Section header */
-    .section-header {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        margin-bottom: 1.25rem;
-        padding-bottom: 1rem;
-        border-bottom: 2px solid var(--gray-200);
-    }
-    
-    .section-icon {
-        font-size: 1.5rem;
-    }
-    
-    /* Sidebar styling */
-    .sidebar .sidebar-content {
-        padding: 2rem 1rem;
-    }
-    
-    [data-testid="stSidebar"] {
-        background-color: var(--gray-50);
-    }
-    
-    /* Expander styling */
-    .streamlit-expanderHeader {
-        background-color: var(--gray-100) !important;
-        border-radius: 8px !important;
-        border: 1px solid var(--gray-200) !important;
+        background: rgba(239, 68, 68, 0.15);
+        color: #f87171;
+        border: 1px solid rgba(239, 68, 68, 0.5);
     }
     
     /* Info box styling */
     .info-box {
-        background-color: var(--primary-light);
-        border-left: 4px solid var(--primary);
+        background: rgba(59, 130, 246, 0.1);
+        border-left: 4px solid #3b82f6;
         border-radius: 8px;
         padding: 1rem 1.5rem;
         margin: 1rem 0;
@@ -257,66 +74,43 @@ st.markdown("""
     
     .info-box-title {
         font-weight: 600;
-        color: var(--secondary);
+        color: #60a5fa;
         margin-bottom: 0.5rem;
     }
     
     /* Success message */
     .success-message {
-        background-color: #f0fdf4;
-        border-left: 4px solid var(--success);
+        background: rgba(16, 185, 129, 0.1);
+        border-left: 4px solid #10b981;
         border-radius: 8px;
         padding: 1rem 1.5rem;
-        color: var(--success);
+        color: #34d399;
         font-weight: 500;
+        margin-top: 5px;
     }
     
     /* Error message */
     .error-message {
-        background-color: #fef2f2;
-        border-left: 4px solid var(--danger);
+        background: rgba(239, 68, 68, 0.1);
+        border-left: 4px solid #ef4444;
         border-radius: 8px;
         padding: 1rem 1.5rem;
-        color: var(--danger);
+        color: #f87171;
         font-weight: 500;
-    }
-    
-    /* Tab styling */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 1rem;
-    }
-    
-    .stTabs [data-baseweb="tab"] {
-        background-color: transparent;
-        border-bottom: 2px solid transparent;
-        border-radius: 0;
-        padding: 1rem 0;
-    }
-    
-    .stTabs [aria-selected="true"] {
-        border-bottom-color: var(--primary);
-        color: var(--primary);
     }
     
     /* Footer */
     .footer {
         text-align: center;
         padding: 2rem 1rem;
-        color: var(--gray-700);
-        border-top: 1px solid var(--gray-200);
+        color: #9ca3af;
+        border-top: 1px solid rgba(150, 150, 150, 0.2);
         margin-top: 3rem;
         font-size: 0.9rem;
     }
     
     .footer-text {
         opacity: 0.8;
-    }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-        .main { padding: 1rem; }
-        h1 { font-size: 1.5rem; }
-        h2 { font-size: 1.25rem; }
     }
     </style>
 """, unsafe_allow_html=True)
